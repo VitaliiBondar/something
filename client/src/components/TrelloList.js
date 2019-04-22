@@ -1,20 +1,24 @@
 import React from "react";
 import TrelloCard from "./TrelloCard";
+import ActionButton from "./ActionButton";
 
-const TrelloList = ({title}) =>{
+const TrelloList = ({title, cards, listID}) =>{
   return (
       <div style={styles.container}>
           <h4>{title}</h4>
-          <TrelloCard />
+          {cards.map(card=><TrelloCard key={card.id} text={card.text}/>)}
+          <ActionButton listID={listID} />
       </div>
   )
 };
 const styles={
   container:{
-      backgroundColor:"#ccc",
+      backgroundColor:"#dfe3e6",
       borderRadius:3,
       width:300,
-      padding:8
+      padding:8,
+      height:"100%",
+      marginRight:8
   }
 };
 export default TrelloList;
