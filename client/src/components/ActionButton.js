@@ -82,8 +82,8 @@ constructor(props){
         const buttonTitle = list ? "Add List" : "Add Card";
         return <div>
             <Card style={{
-                overflow:"visible",
-                minHeight:80,
+                // overflow:"visible",
+                minHeight:85,
                 minWidth:272,
                 padding:"6px 8px 2px"
             }}>
