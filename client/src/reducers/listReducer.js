@@ -4,34 +4,34 @@ let cardID=5;
 
 const initialState=[
     {
-        title: "Some Text",
+        title: "Backlog",
         id: `list-${0}`,
         cards:[
             {
                 id:`card-${0}`,
-                text:"lorem ipsum"
+                text:"As an Admin, I want to have the possibility to Sign In"
             },
             {
                 id:`card-${1}`,
-                text:"lorem ipsum2"
+                text:"As a Waiter, I want to have the possibility to view own profile"
             }
         ]
     },
     {
-        title: "Some Text2",
+        title: "In Progress",
         id: `list-${1}`,
         cards:[
             {
                 id:`card-${2}`,
-                text:"lorem ipsum3"
+                text:"As a Client, I want to have the possibility to cancel reservation of a table"
             },
             {
                 id:`card-${3}`,
-                text:"lorem ipsum4"
+                text:"As a Client, I want to have the possibility to leave feedback about restaurant"
             },
             {
                 id:`card-${4}`,
-                text:"lorem ipsum5"
+                text:"As a Client, I want to have the possibility to use order template"
             }
         ]
     }
