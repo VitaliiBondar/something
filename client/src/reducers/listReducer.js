@@ -9,11 +9,13 @@ const initialState=[
         cards:[
             {
                 id:`card-${0}`,
-                text:"As an Admin, I want to have the possibility to Sign In"
+                text:"As an Admin, I want to have the possibility to Sign In",
+                date:"23.04.2019, 23:32:57"
             },
             {
                 id:`card-${1}`,
-                text:"As a Waiter, I want to have the possibility to view own profile"
+                text:"As a Waiter, I want to have the possibility to view own profile",
+                date:"23.04.2019, 23:32:57"
             }
         ]
     },
@@ -23,15 +25,18 @@ const initialState=[
         cards:[
             {
                 id:`card-${2}`,
-                text:"As a Client, I want to have the possibility to cancel reservation of a table"
+                text:"As a Client, I want to have the possibility to cancel reservation of a table",
+                date:"23.04.2019, 23:32:57"
             },
             {
                 id:`card-${3}`,
-                text:"As a Client, I want to have the possibility to leave feedback about restaurant"
+                text:"As a Client, I want to have the possibility to leave feedback about restaurant",
+                date:"23.04.2019, 23:32:57"
             },
             {
                 id:`card-${4}`,
-                text:"As a Client, I want to have the possibility to use order template"
+                text:"As a Client, I want to have the possibility to use order template",
+                date:"23.04.2019, 23:32:57"
             }
         ]
     }
@@ -50,7 +55,8 @@ const listsReducer =(state=initialState,action)=>{
         case CONSTANTS.ADD_CARD: {
             const newCard = {
                 text: action.payload.text,
-                id: `card-${cardID}`
+                id: `card-${cardID}`,
+                date: action.payload.date
             };
             cardID++;
 
@@ -94,6 +100,23 @@ const listsReducer =(state=initialState,action)=>{
 
             }
             return newState;
+        case CONSTANTS.DELETE_CARD: {
+            const { id, listID } = action.payload;
+            const newState = state;
+            console.log(id[5]);
+            console.log(listID[5]);
+            console.log(newState[listID[5]]);
+            const newCards = newState[listID[5]].cards.filter(card => card.id !== id);
+            console.log(newCards);
+            newState[listID[5]].cards=newCards;
+            return newState;
+        }
+        case CONSTANTS.EDIT_CARD: {
+            const { id, newText } = action.payload;
+            const card = state[id];
+            card.text = newText;
+            return { ...state, [`card-${id}`]: card };
+        }
         default:
             return state;
     }
