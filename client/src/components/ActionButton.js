@@ -11,7 +11,8 @@ constructor(props){
     super(props);
     this.state={
         formOpen: false,
-        text:""
+        text:"",
+        date:""
     }
 }
 
@@ -46,12 +47,15 @@ constructor(props){
     handleAddCard =() =>{
         const { dispatch, listID } =this.props;
         const { text } = this.state;
+        let date= new Date();
+        console.log(date.toLocaleString());
 
         if(text){
             this.setState({
-                text:""
+                text:"",
+                date:""
             });
-            dispatch(addCard(listID, text))
+            dispatch(addCard(listID, text,date.toLocaleString()))
         }
     };
 
@@ -70,7 +74,7 @@ constructor(props){
                 color:buttonTextColor,
                 background:buttonTextBackground
             }}>
-                <Icon>+</Icon>
+                <Icon>add</Icon>
                 <p>{buttonText}</p>
             </div>
         )
@@ -110,7 +114,7 @@ constructor(props){
                 >
                     {buttonTitle}
                 </Button>
-                <Icon style={{marginLeft:8,cursor:"pointer"}}>x</Icon>
+                <Icon style={{marginLeft:8,cursor:"pointer"}}>close</Icon>
             </div>
         </div>;
     };
