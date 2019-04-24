@@ -8,6 +8,7 @@ import Icon from '@material-ui/core/Icon';
 import { deleteCard, editCard } from "../actions";
 import { connect } from "react-redux";
 import OpenCard from "./OpenCard";
+import {Link} from "react-router-dom";
 import Grid from "@material-ui/core/Grid";
 
 const CardContainer = styled.div`
@@ -20,6 +21,7 @@ word-wrap: break-word;
 const TrelloCard = ({text, id, index, listID, dispatch,date}) => {
     const handleDeleteCard = e => {
         dispatch(deleteCard(id, listID));
+
     };
     return (
         <Draggable draggableId={String(id)} index={index}>
@@ -37,7 +39,7 @@ const TrelloCard = ({text, id, index, listID, dispatch,date}) => {
                                 <OpenCard id={id} text={text} date={date}/>
                                 </Grid>
                             </CardContent>
-                            {/*<Icon fontSize="small" onMouseDown={handleDeleteCard}>delete</Icon>*/}
+                            <Icon fontSize="small" onMouseDown={handleDeleteCard} component={Link} to="/">delete</Icon>
                         </Card>
                 </CardContainer>
             )}

@@ -3,6 +3,7 @@ import { Route, Switch } from "react-router-dom";
 import Board from "../components/Board";
 import RegistrationPage from "../containers/RegistrationPage";
 import LoginPage from "../containers/LoginPage";
+import Profile from "../components/Profile";
 
 
 class Router extends React.Component {
@@ -12,7 +13,7 @@ class Router extends React.Component {
                 <Route exact path="/" component={Board} />
                 <Route path="/login" component={LoginPage} />
                 <Route path="/registration" component={RegistrationPage} />
-                <Route render={() => (<div style={{color: "white", textAlign: "center", fontSize: "2rem"}}>Page not found </div>)} />
+                <Route path="/profile" component={Profile} />
             </Switch>
         );
     }

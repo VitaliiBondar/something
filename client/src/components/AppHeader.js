@@ -42,7 +42,10 @@ class MenuAppBar extends React.Component {
     };
 
     handleClose = () => {
-        this.setState({anchorEl: null, auth: false});
+        this.setState({anchorEl: null, auth:false});
+    };
+    handleCloseMenu = () => {
+        this.setState({anchorEl: null});
     };
 
     render() {
@@ -87,10 +90,10 @@ class MenuAppBar extends React.Component {
                                         horizontal: 'right',
                                     }}
                                     open={open}
-                                    onClose={this.handleClose}
+                                    // onClose={this.handleClose}
                                 >
-                                    <MenuItem onClick={this.handleClose}>Profile</MenuItem>
-                                    <MenuItem onClick={this.handleClose}>Logout</MenuItem>
+                                    <MenuItem onClick={this.handleCloseMenu} component={Link} to="/profile">Profile</MenuItem>
+                                    <MenuItem onClick={this.handleClose} component={Link} to="/">Logout</MenuItem>
                                 </Menu>
                             </div>
                         )}
