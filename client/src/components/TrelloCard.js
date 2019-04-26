@@ -5,7 +5,7 @@ import Typography from "@material-ui/core/Typography";
 import {Draggable} from "react-beautiful-dnd";
 import styled from "styled-components";
 import Icon from '@material-ui/core/Icon';
-import { deleteCard, editCard } from "../actions";
+import { deleteCard } from "../actions";
 import { connect } from "react-redux";
 import OpenCard from "./OpenCard";
 import {Link} from "react-router-dom";

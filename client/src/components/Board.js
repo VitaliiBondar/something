@@ -5,6 +5,7 @@ import ActionButton from "./ActionButton";
 import {DragDropContext} from "react-beautiful-dnd";
 import {sort} from "../actions";
 import styled from "styled-components";
+import AppHeader from "./AppHeader";
 
 const ListContainer = styled.div`
      margin-top: 10px;
@@ -32,7 +33,8 @@ class Board extends Component {
 
     render() {
         const {lists} = this.props;
-        return (
+        return (<>
+                <AppHeader />
             <DragDropContext onDragEnd={this.onDragEnd}>
                 <div>
                     <ListContainer>
@@ -42,6 +44,7 @@ class Board extends Component {
                     </ListContainer>
                 </div>
             </DragDropContext>
+            </>
         );
     }
 }
