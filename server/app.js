@@ -3,6 +3,7 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const logger = require("morgan");
 const CardsRouter = require('./routes/cards');
+const UsersRouter = require('./routes/users');
 
 const API_PORT = 3001;
 const app = express();
@@ -30,6 +31,7 @@ app.use(logger("dev"));
 
 
 app.use('/api/cards', CardsRouter);
+app.use('/api/users', UsersRouter);
 
 // launch our backend into a port
 app.listen(API_PORT, () => console.log(`LISTENING ON PORT ${API_PORT}`));
