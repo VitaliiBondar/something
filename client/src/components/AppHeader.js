@@ -6,9 +6,6 @@ import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import IconButton from '@material-ui/core/IconButton';
 import AccountCircle from '@material-ui/icons/AccountCircle';
-import Switch from '@material-ui/core/Switch';
-import FormControlLabel from '@material-ui/core/FormControlLabel';
-import FormGroup from '@material-ui/core/FormGroup';
 import MenuItem from '@material-ui/core/MenuItem';
 import Menu from '@material-ui/core/Menu';
 import Button from '@material-ui/core/Button';
@@ -29,12 +26,8 @@ const styles = {
 
 class MenuAppBar extends React.Component {
     state = {
-        auth: true,
+        auth: localStorage.getItem('auth'),
         anchorEl: null,
-    };
-
-    handleChange = event => {
-        this.setState({auth: event.target.checked});
     };
 
     handleMenu = event => {
@@ -43,6 +36,8 @@ class MenuAppBar extends React.Component {
 
     handleClose = () => {
         this.setState({anchorEl: null, auth:false});
+        localStorage.removeItem('auth');
+        localStorage.removeItem('login');
     };
     handleCloseMenu = () => {
         this.setState({anchorEl: null});
@@ -60,14 +55,6 @@ class MenuAppBar extends React.Component {
                         <Typography variant="h6" color="inherit" className={classes.grow} component={Link} to="/">
                             Something like Trello
                         </Typography>
-                        <FormGroup>
-                            <FormControlLabel
-                                control={
-                                    <Switch checked={auth} onChange={this.handleChange} aria-label="LoginSwitch"/>
-                                }
-                                label={auth ? 'Logout' : 'Login'}
-                            />
-                        </FormGroup>
                         {auth && (
                             <div>
                                 <IconButton
